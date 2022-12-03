@@ -1,0 +1,53 @@
+.addTransaction {
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+  width: 900px;
+  height: 80px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.account , .distination, .amount, .description {
+  font-size: 24px;
+  background-color: transparent;
+  color: black;
+}
+.field {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px ridge rgba(86, 151, 194, 0.6);
+}
+.items {
+  width: 900px;
+  height: 100px;
+}
+.container {
+  display: flex;
+  max-width: 900px;
+  margin-left: 200px;
+}
+.budget-column, .expenses-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    /* the columns size the same of the content */
+    flex-grow: 1;
+    /* the column will take up all available space */
+
+}
+h1 {
+  font-size: 24px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+.budget-items, .expenses-items {
+  display: flex;
+  border: 2px ridge rgba(86, 151, 194, 0.6);
+  width: 200px;
+  height: 40px;
+}
+.amount {
+  flex-grow: 1;
+  font-size: 20px;
+  text-align: center;
+}
+

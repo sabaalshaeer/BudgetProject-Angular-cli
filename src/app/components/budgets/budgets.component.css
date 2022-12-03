@@ -1,0 +1,18 @@
+.header {
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+.mat-tab-group {
+  text-align: center;
+  display: flex;
+  height: 100px;
+  background: linear-gradient(75deg, rgb(112, 62, 231), rgb(5, 5, 138));
+  margin: 20px;
+  padding: 25px;
+  font-size: 24px;
+}

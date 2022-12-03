@@ -1,1 +1,56 @@
-<p>transactions works!</p>
+<section class="addTransaction">
+  <mat-form-field>
+    <mat-label class="account">Account</mat-label>
+    <mat-select>
+      <mat-option value="checking">Checking</mat-option>
+      <mat-option value="saving">Saving</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="distination">Distination</mat-label>
+    <mat-select>
+      <mat-option value="house">House Expenses</mat-option>
+      <mat-option value="car">Car Expenses</mat-option>
+      <mat-option value="personal">Personal Expenses</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="description">description</mat-label>
+    <input matInput placeholder="description">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="amount">Amount</mat-label>
+    <input matInput placeholder="amount">
+  </mat-form-field>
+  <div class="field">
+    <button type="button" mat-button>Add Transaction</button>
+  </div>
+</section>
+
+<section class="items">
+  <div class="container">
+    <!-- <div class="budget-column">
+      <h1>budget:</h1>
+      <div class="budget-items">
+        <div class="description">
+          <p>test</p>
+        </div>
+        <div class="amount">
+          <p>100</p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="expenses-column">
+      <h1>Transaction:</h1>
+      <div class="expenses-items">
+        <div class="description">
+          <p>test</p>
+        </div>
+        <div class="amount">
+          <p>100</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

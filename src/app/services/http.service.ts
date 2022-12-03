@@ -9,7 +9,7 @@ export class HttpService {
   private showAccount = false
   private showBudget = false
   private showTransaction = false
-  private showDashbard = false
+  private showDashbord = false
   private loading = false
 
 
@@ -24,21 +24,32 @@ export class HttpService {
   public getShowTransction(): boolean {
     return this.showTransaction
   }
-  public getShowDashbard(): boolean {
-    return this.showDashbard
+  public getShowDashbord(): boolean {
+    return this.showDashbord
   }
   public startAccount() : void {
     this.showAccount = true
+    this.showBudget = false
+    this.showTransaction = false
+    this.showDashbord = false
   }
   public startBudge() : void {
+    this.showAccount = false
     this.showBudget = true
-
+    this.showTransaction = false
+    this.showDashbord = false
   }
   public startTransaction() : void {
+    this.showAccount = false
+    this.showBudget = false
     this.showTransaction = true
+    this.showDashbord = false
   }
-  public startDashbard() : void {
-    this.showDashbard = true
+  public startDashbord() : void {
+    this.showAccount = false
+    this.showBudget = false
+    this.showTransaction = false
+    this.showDashbord = true
   }
 
 

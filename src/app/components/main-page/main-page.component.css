@@ -1,3 +1,8 @@
+.wholepage {
+  height: 900px;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/004/585/326/original/banking-building-business-finance-management-low-poly-wireframe-illustration-isolated-background-free-vector.jpg"
+  );
+}
 .top-bar {
   padding: 20px;
   justify-content: center;
@@ -15,7 +20,7 @@ span {
 .menu {
     list-style: none;
     width: 200px;
-    margin: 10px;
+    margin: 15px;
     background-color: #f6f6f6;
     /* position: absolute; */
     top: calc(100% + 10px);
@@ -44,5 +49,8 @@ ul li  a {
 }
 ul li a:hover {
   padding-left: 25px;
+}
+.account {
+  margin-left: 20px;
 }
 

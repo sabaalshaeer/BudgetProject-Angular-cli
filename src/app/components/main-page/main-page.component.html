@@ -1,6 +1,9 @@
+<div class="wholepage">
+
 <div class="top-bar">
   <h1>Personal Bank Account</h1>
 </div>
+<div class="account">
 <mat-toolbar>
   <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" >
     <mat-icon>menu</mat-icon>
@@ -13,10 +16,14 @@
     <li><a (click)="Http.startAccount()">Bank Account</a></li>
     <li><a (click)="Http.startBudge()">Budget</a></li>
     <li><a (click)="Http.startTransaction()">Transactions</a></li>
-    <li><a (click)="Http.startDashbard()">Dashboard</a></li>
+    <li><a (click)="Http.startDashbord()">Dashboard</a></li>
   </ul>
+</div>
 </div>
 
 <app-budgets *ngIf="this.Http.getShowBudget()"></app-budgets>
 <app-transactions *ngIf="Http.getShowTransction()"></app-transactions>
+<app-dashbord *ngIf="this.Http.getShowDashbord()"></app-dashbord>
+<app-bank-account *ngIf="this.Http.getShowAccount()"></app-bank-account>
 
+</div>

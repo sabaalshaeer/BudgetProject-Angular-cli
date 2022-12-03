@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
-  selector: 'app-dashbard',
-  templateUrl: './dashbard.component.html',
-  styleUrls: ['./dashbard.component.css']
+  selector: 'app-dashbord',
+  templateUrl: './dashbord.component.html',
+  styleUrls: ['./dashbord.component.css']
 })
-export class DashbardComponent implements OnInit {
+export class DashbordComponent implements OnInit {
 
   constructor(public Http: HttpService) { }
 
