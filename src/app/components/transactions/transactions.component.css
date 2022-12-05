@@ -11,7 +11,7 @@
   background-color: transparent;
   color: black;
 }
-.field {
+.add-transaction {
   display: inline-block;
   background-color: transparent;
   border: 2px ridge rgba(86, 151, 194, 0.6);
@@ -25,7 +25,8 @@
   max-width: 900px;
   margin-left: 200px;
 }
-.budget-column, .expenses-column {
+.expenses-column {
+  margin-left: 200px;
     display: flex;
     flex-direction: column;
     flex-basis: 0;
@@ -39,7 +40,7 @@ h1 {
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
 }
-.budget-items, .expenses-items {
+.expenses-items {
   display: flex;
   border: 2px ridge rgba(86, 151, 194, 0.6);
   width: 200px;

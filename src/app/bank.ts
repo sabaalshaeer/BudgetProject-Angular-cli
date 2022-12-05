@@ -1,94 +1,57 @@
-export class bank_accounts {
+export class Bank_account {
 
-        public id: number
-        public name: string
-        public type: string
-        public balance: 10000
+  public accId: number
+  public name: string
+  public type: string
+  public balance: number
 
-        constructor( id:number, name:string, type: string, balance: number) {
-          this.id = id
-          this.name = name
-          this.type = type
-          this.balance = 
-        }
-      }
+  constructor(id: number, name: string, type: string, balance: number) {
+    this.accId = id
+    this.name = name
+    this.type = type
+    this.balance = balance
+  }
+}
 
+export class Distination {
+  public disId: number
+  public name: string
+  public budget: number
 
+  constructor(id: number, name: string, budget: number) {
+    this.disId = id
+    this.name = name
+    this.budget = budget
+  }
+}
 
+export class Budget {
+  public budId: number
+  public name: string
+  public total: number
 
-//       {
-//         "id": 2,
-//         "name": "account2",
-//         "type": "checking",
-//         "balance": 5000
-//       }
-//     ],
-//     "destinations": [
-//       {
-//         "id": 1,
-//         "name": "mortgage",
-//         "budget": ""
-//       },
-//       {
-//         "id": 2,
-//         "name": "utilities",
-//         "budget": ""
-//       },
-//       {
-//         "id": 3,
-//         "name": "clothing",
-//         "budget": ""
-//       },
-//       {
-//         "id": 4,
-//         "name": "grocery",
-//         "budget": ""
-//       },
-//       {
-//         "id": 5,
-//         "name": "gas",
-//         "budget": ""
-//       }
-//     ],
-//     "budgets": [
-//       {
-//         "id": 1,
-//         "name": "house",
-//         "total": 1000
-//       },
-//       {
-//         "id": 1,
-//         "name": "personal",
-//         "total": 1000
-//       },
-//       {
-//         "id": 1,
-//         "name": "car",
-//         "total": 1000
-//       }
-//     ],
-//     "transactions": [
-//       {
-//         "id": 1,
-//         "source": "account1",
-//         "distination": 1,
-//         "amount": 1000,
-//         "budget": 1
-//       },
-//       {
-//         "id": 2,
-//         "source": "account2",
-//         "distination": 1,
-//         "amount": 1000,
-//         "budget": 1
-//       }
-//     ]
-//   }
+  constructor(id: number, name: string, total: number) {
+    this.budId = id
+    this.name = name
+    this.total = total
+  }
+}
 
+export class Transaction {
+  public transId: number
+  public source: string
+  public distination: string
+  public description: string
+  public amount: number
+  public budget: number
 
+  constructor(id: number, source: string, distination: string, description: string ,amount: number, budget: number) {
+    this.transId = id
+    this.source = source
+    this.distination = distination
+    this.description = description
+    this.amount = amount
+    this.budget = budget
+  }
+}
 
-
-
-
-
-// }

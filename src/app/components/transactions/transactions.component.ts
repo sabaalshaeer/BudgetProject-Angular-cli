@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-// import { Accounts } from 'src/app/bank';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Transaction } from 'src/app/bank';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -8,15 +9,22 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./transactions.component.css']
 })
 export class TransactionsComponent implements OnInit {
-  // accounts: Accounts[] = [
-  //   checking: 'Checking',
-  //   saving: "Saving"
-  // ];
-// }
+
+
+  public transId = ''
+  public source = ''
+  public distination = ''
+  public description = ''
+  public amount = ''
+  public budget = ''
+
+
 
   constructor(public Http: HttpService) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -1,13 +1,13 @@
 {
   "bank_accounts": [
     {
-      "id": 1,
+      "accId": 1,
       "name": "account1",
       "type": "saving",
       "balance": 10000
     },
     {
-      "id": 2,
+      "accId": 2,
       "name": "account2",
       "type": "checking",
       "balance": 5000
@@ -15,62 +15,88 @@
   ],
   "destinations": [
     {
-      "id": 1,
+      "disId": 1,
       "name": "mortgage",
-      "budget": ""
+      "budget": 0
     },
     {
-      "id": 2,
+      "disId": 2,
       "name": "utilities",
-      "budget": ""
+      "budget": 0
     },
     {
-      "id": 3,
+      "disId": 3,
       "name": "clothing",
-      "budget": ""
+      "budget": 0
     },
     {
-      "id": 4,
+      "disId": 4,
       "name": "grocery",
-      "budget": ""
+      "budget": 0
     },
     {
-      "id": 5,
+      "disId": 5,
       "name": "gas",
-      "budget": ""
+      "budget": 0
     }
   ],
   "budgets": [
     {
-      "id": 1,
+      "budId": 1,
       "name": "house",
       "total": 1000
     },
     {
-      "id": 1,
+      "budId": 2,
       "name": "personal",
       "total": 1000
     },
     {
-      "id": 1,
+      "budId": 3,
       "name": "car",
       "total": 1000
     }
   ],
   "transactions": [
     {
-      "id": 1,
+      "transId": 1,
       "source": "account1",
-      "distination": 1,
-      "amount": 1000,
-      "budget": 1
+      "distination": "house",
+      "description": "utilities",
+      "amount": 100,
+      "budget": 100
     },
     {
-      "id": 1,
+      "transId": 2,
+      "source": "account1",
+      "distination": "car",
+      "description": "gas",
+      "amount": 100,
+      "budget": 100
+    },
+    {
+      "transId": 3,
       "source": "account2",
-      "distination": 1,
-      "amount": 1000,
-      "budget": 1
+      "distination": "personal",
+      "description": "grocery",
+      "amount": 200,
+      "budget": 250
+    },
+    {
+      "transId": 4,
+      "source": "account2",
+      "distination": "bills",
+      "description": "phone",
+      "amount": 200,
+      "budget": 200
+    },
+    {
+      "transId": 5,
+      "source": "account2",
+      "distination": "personal",
+      "description": "clothing",
+      "amount": 150,
+      "budget": 300
     }
   ]
 }

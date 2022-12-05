@@ -10,13 +10,14 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { BudgetsComponent } from './components/budgets/budgets.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DashbardComponent } from './components/dashbard/dashbard.component';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { BankAccountComponent } from './components/bank-account/bank-account.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ListTransactionsComponent } from './components/list-transactions/list-transactions.component';
 
 
 
@@ -26,9 +27,9 @@ import {MatSelectModule} from '@angular/material/select';
     MainPageComponent,
     BudgetsComponent,
     TransactionsComponent,
-    DashbardComponent,
     DashbordComponent,
     BankAccountComponent,
+    ListTransactionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]

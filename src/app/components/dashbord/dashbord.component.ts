@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Transaction } from 'src/app/bank';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -7,10 +8,13 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent implements OnInit {
+  
 
   constructor(public Http: HttpService) { }
 
   ngOnInit(): void {
   }
 
-}
+  }
+
+
