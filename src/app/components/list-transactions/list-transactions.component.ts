@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
+import { ngxCsv } from 'ngx-csv/ngx-csv';
+
 
 @Component({
   selector: 'app-list-transactions',
@@ -20,4 +22,19 @@ export class ListTransactionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  fileDownLoad(){
+    var options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: true,
+      title: 'Report Transactions',
+      useBom: true,
+      noDownload: false,
+      headers: ["TransId", "Source", "Distination", "Description", "Amount", "budget"]
+    };
+
+    new ngxCsv(this.transactions, 'Report', options);
+  }
 }
