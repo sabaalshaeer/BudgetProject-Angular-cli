@@ -18,6 +18,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ListTransactionsComponent } from './components/list-transactions/list-transactions.component';
+import {MatTableModule} from '@angular/material/table';
+
+
 
 
 
@@ -43,7 +46,8 @@ import { ListTransactionsComponent } from './components/list-transactions/list-t
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
     ],
   providers: [],
   bootstrap: [AppComponent]

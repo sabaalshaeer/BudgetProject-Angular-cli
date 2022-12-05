@@ -1,4 +1,4 @@
-<div class="trans">
+<!-- <div class="trans">
 <h3 class="p-6 text-center">list of Transactions</h3>
 <div class="container">
     <table class="table table-striped table-bordered">
@@ -25,6 +25,55 @@
     </table>
 </div>
 </div>
-<button type="button" (click)="fileDownLoad()">Download</button>
+
+<button type="button" (click)="fileDownLoad()">Download</button> -->
 
 
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+      class="mat-elevation-z8">
+
+  <ng-container matColumnDef="transId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by transId">
+      Id
+    </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction.transId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="source">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by source">
+      Source
+    </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction.source}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="distination">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by distination">
+      Distination
+    </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction.distination}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">
+      Distination
+    </th>
+    <td mat-cell *matCellDef="let transaction"> {{transaction.description}} </td>
+  </ng-container>
+
+<ng-container matColumnDef="amount">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by amount">
+    Amount
+  </th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.amount}} </td>
+</ng-container>
+
+<ng-container matColumnDef="budget">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by budget">
+    budget
+  </th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.budget}} </td>
+</ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
