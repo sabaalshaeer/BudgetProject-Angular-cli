@@ -75,7 +75,7 @@ export class HttpService {
     this.showTransaction = true
     this.showDashbord = false
     // localStorage.setItem('source', transition.source)
-    this.loadTransations()
+    // this.loadTransations()
 
 
   }
@@ -96,7 +96,7 @@ export class HttpService {
     })
   }
 
-  public getAccount(): void {
+  public getAccounts(): void {
     this.Http.get<Bank_account[]>('http://localhost:3000/bank_accounts')
     .pipe(take(1))
     .subscribe({
@@ -112,7 +112,7 @@ export class HttpService {
     })
   }
 
-  public getBudget(): void {
+  public getBudgets(): void {
     this.Http.get<Budget[]>('http://localhost:3000/budgets')
     .pipe(take(1))
     .subscribe({
@@ -128,7 +128,7 @@ export class HttpService {
     })
   }
 
-  public getTransaction(): void {
+  public getTransactions(): void {
     this.Http.get<Transaction[]>('http://localhost:3000/transactions')
     .pipe(take(1))
     .subscribe({
@@ -143,16 +143,17 @@ export class HttpService {
       error: err => this.showError('Ooops, somthing wrong happened')
     })
   }
+}
 
-  private loadTransations() : void {
-    this.Http.get<Transaction[]>('http://localhost:3000/transactions')
-    .pipe(take(1))
-    .subscribe({
-      next: this.transactions => this.tranactions = transition,
-    })
-  } else {
+  // private loadTransations() : void {
+  //   this.Http.get<Transaction[]>('http://localhost:3000/transactions')
+  //   .pipe(take(1))
+  //   .subscribe({
+  //     next: this.transactions => this.tranactions = transition,
+  //   })
+  // } else {
 
-  }
+  // }
 
 
   // public getAllTransaction(): void {
