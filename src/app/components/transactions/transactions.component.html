@@ -1,3 +1,5 @@
+<form >
+  <!-- #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)" -->
 <section class="addTransaction">
   <mat-form-field>
     <mat-label class="account" required [(ngModel)]="source" name="source">Account</mat-label>
@@ -23,18 +25,48 @@
     <input matInput placeholder="amount">
   </mat-form-field>
   <section class="add-transaction">
-    <div class="add-transaction">
-      <button type="submit" >Add Transaction</button>
+    <div >
+      <button class="button" type="submit">Add Transaction</button>
     </div>
   </section>
 
 </section>
+</form>
 
-<app-list-transactions></app-list-transactions>
+<app-list-transactions ></app-list-transactions>
 
 
 
 <!-- in my transaction, I can iterate my getTransaction method, also I need to send this paticular transaction to the dashbord component -->
 <!-- <app-dashbord *ngFor="let transaction of Http.getTransactions()" [transaction]="transaction"></app-dashbord> -->
 <!-- [transaction ] will send this transaction in to the dashbord component -->
+
+<!--
+<div class="trans">
+  <h3 class="p-6 text-center">list of Transactions</h3>
+  <div class="container">
+      <table class="table table-striped table-bordered">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>source</th>
+                  <th>distination</th>
+                  <th>description</th>
+                  <th>amount</th>
+                  <th>budget</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let transaction of Http.getAllTransaction()">
+                  <td>{{transaction.transId}}</td>
+                  <td>{{transaction.source}}</td>
+                  <td>{{transaction.distination}}</td>
+                  <td>{{transaction.description}}</td>
+                  <td>{{transaction.amount}}</td>
+                  <td>{{transaction.budget}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  </div> -->
 

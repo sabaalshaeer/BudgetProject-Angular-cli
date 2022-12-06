@@ -38,14 +38,14 @@ export class Budget {
 }
 
 export class Transaction {
-  public transId: number
+  public transId: number | null
   public source: string
   public distination: string
   public description: string
   public amount: number
   public budget: number
 
-  constructor(id: number, source: string, distination: string, description: string ,amount: number, budget: number) {
+  constructor(id: number | null, source: string, distination: string, description: string ,amount: number, budget: number) {
     this.transId = id
     this.source = source
     this.distination = distination

@@ -8,7 +8,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class BudgetsComponent implements OnInit {
 
-  constructor(public http:HttpService) { }
+  constructor(public Http:HttpService) { }
 
   ngOnInit(): void {
   }

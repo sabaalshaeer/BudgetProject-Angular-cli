@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ListTransactionsComponent } from './components/list-transactions/list-transactions.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatSortModule, Sort} from '@angular/material/sort';
 
 
 
@@ -47,7 +48,8 @@ import {MatTableModule} from '@angular/material/table';
     MatFormFieldModule,
     MatSelectModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
     ],
   providers: [],
   bootstrap: [AppComponent]
