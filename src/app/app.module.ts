@@ -49,7 +49,7 @@ import {MatSortModule, Sort} from '@angular/material/sort';
     MatSelectModule,
     MatSnackBarModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

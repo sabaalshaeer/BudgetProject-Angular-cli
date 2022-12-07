@@ -1,11 +1,11 @@
 export class Bank_account {
 
-  public accId: number
+  public accId: number | null
   public name: string
   public type: string
   public balance: number
 
-  constructor(id: number, name: string, type: string, balance: number) {
+  constructor(id: number | null, name: string, type: string, balance: number) {
     this.accId = id
     this.name = name
     this.type = type
@@ -14,11 +14,11 @@ export class Bank_account {
 }
 
 export class Distination {
-  public disId: number
+  public disId: number | null
   public name: string
   public budget: number
 
-  constructor(id: number, name: string, budget: number) {
+  constructor(id: number | null, name: string, budget: number) {
     this.disId = id
     this.name = name
     this.budget = budget
@@ -26,7 +26,7 @@ export class Distination {
 }
 
 export class Budget {
-  public budId: number
+  public budId: number | null
   public name: string
   public total: number
 
@@ -38,15 +38,17 @@ export class Budget {
 }
 
 export class Transaction {
-  public transId: number | null
+  public id: number| null
+  public transId: number | null = null
   public source: string
   public distination: string
   public description: string
   public amount: number
   public budget: number
 
-  constructor(id: number | null, source: string, distination: string, description: string ,amount: number, budget: number) {
-    this.transId = id
+  constructor(id: number | null, transId: number | null, source: string, distination: string, description: string ,amount: number, budget: number)  {
+    this.id = id
+    this.transId = transId
     this.source = source
     this.distination = distination
     this.description = description

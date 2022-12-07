@@ -1,7 +1,73 @@
+<!-- <form #newTransactions> --> -->
+  <!-- #itemForm="ngForm" (ngSubmit)="addNewTransaction(itemForm)" -->
+<section class="addTransaction">
+  <mat-form-field>
+    <mat-label class="account" >Account</mat-label>
+    <mat-select required [(ngModel)]="source">
+      <mat-option value="checking" >Checking</mat-option>
+      <mat-option value="saving" >Saving</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="distination"  >Distination</mat-label>
+    <mat-select required [(ngModel)]="distination">
+      <mat-option value="house">House Expenses</mat-option>
+      <mat-option value="car">Car Expenses</mat-option>
+      <mat-option value="personal">Personal Expenses</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="description"  >description</mat-label>
+    <input matInput required [(ngModel)]="description" placeholder="description">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="amount"  >Amount</mat-label>
+    <input matInput required [(ngModel)]="amount"  placeholder="amount">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label class="budget"  >Budget</mat-label>
+    <input matInput required [(ngModel)]="budget"  placeholder="budget">
+  </mat-form-field>
+  <section class="add-transaction">
+    <div >
+      <button class="button" type="submit" (click)="Http.getAllTransactions()">Get All Transactions</button>
+      <button class="button" type="submit" (click)="Http.newTransaction(source, description, distination, amount!,budget!)">Add New Transactions</button>
+      <button class="button" type="submit" (click)="Http.cancelNewTransaction()">Cancel New Transactions</button>
+    </div>
+  </section>
+</section>
+<!-- </form> -->
+
+<div class="trans">
+  <h3 class="p-6 text-center">list of Transactions</h3>
+  <div class="container">
+      <table matSort (matSortChange)="sortData($event)">
+              <tr>
+                <th mat-sort-header="transId"  name="transId">Id</th>
+                <th mat-sort-header="source"  name="source">source</th>
+                <th mat-sort-header="distination"  name="distination">distination</th>
+                <th mat-sort-header="description"  name="description">description</th>
+                <th mat-sort-header="amount"  name="amount">amount</th>
+                <th mat-sort-header="budget" name="budget">budget</th>
+              </tr>
+          <tbody>
+              <tr *ngFor="let transaction of Http.getTransactions()">
+                  <td>{{transaction.transId}}</td>
+                  <td>{{transaction.source}}</td>
+                  <td>{{transaction.distination}}</td>
+                  <td>{{transaction.description}}</td>
+                  <td>{{transaction.amount}}</td>
+                  <td>{{transaction.budget}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  </div>
+
+  <!-- <button type="button" (click)="fileDownLoad()">Download</button> -->
 
 
-
-<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+<!-- <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
       class="mat-elevation-z8">
 
   <ng-container matColumnDef="transId">
@@ -48,7 +114,7 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<button type="button" (click)="Http.getTransactions()">get Transaction</button>
-<button type="button" (click)="fileDownLoad()">Download</button>
+</table> -->
+
+
 

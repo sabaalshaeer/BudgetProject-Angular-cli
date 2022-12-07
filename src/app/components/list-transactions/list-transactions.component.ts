@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
 
@@ -15,69 +15,84 @@ import { Transaction } from 'src/app/bank';
   styleUrls: ['./list-transactions.component.css']
 })
 export class ListTransactionsComponent implements OnInit {
-  tranactions: Transaction | undefined
-
-  transactions = []
-  //   {transId: 1, source: "checking", distination: "house", description: "utilities", amount: 100, budget: 100},
-  //   {transId: 2, source: "saving", distination: "car", description: "gas", amount: 100, budget: 100},
-  //   {transId: 3, source: "checking", distination: "personal", description: "groucery", amount: 200, budget: 250},
-  //   {transId: 4, source: "checking", distination: "personal", description: "clothing", amount: 150, budget: 300},
-  //   {transId: 5, source: "saving", distination: "bills", description: "phone", amount: 200, budget: 200},
-  // ];
-
-// initialize the array
+  @Input() transaction: Transaction | undefined
 
 
-  //download the list of tranaction
-  displayedColumns: string[] = ['transId', 'source', 'distination', 'description', 'amount' , 'budget'];
-  dataSource = new MatTableDataSource(this.transactions);
+  public transId = ''
+  public source = ''
+  public distination = ''
+  public description = ''
+  public amount: number | undefined
+  public budget: number | undefined
+
+  transactions: Transaction[] = []
+  sortedData: Transaction[] | undefined;
+
+  // public source1: string =
+  // public distination1: string = newDistination
+  // public description1: string = new Description()
+  // public amount1: string = new Amount()
+
+
 
   constructor(public Http: HttpService , private _liveAnnouncer: LiveAnnouncer) {
-  const transactions = Http.getTransactions()
-  }
-
-  @ViewChild(MatSort) sort: MatSort | null = null;
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
-   /** Announce the change in sort state for assistive technology. */
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
+    this.sortedData = this.transactions.slice();
     }
-  }
-  // #######################################
+
 
 
   ngOnInit(): void {
   }
 
-// download the list of tranaction
-  fileDownLoad(){
-    var options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: true,
-      title: 'Report Transactions',
-      useBom: true,
-      noDownload: false,
-      headers: ["TransId", "Source", "Distination", "Description", "Amount", "budget"]
-    };
-    new ngxCsv(this.transactions, 'Report', options);
+
+  // fileDownLoad(){
+  //   var options = {
+  //     fieldSeparator: ',',
+  //     quoteStrings: '"',
+  //     decimalseparator: '.',
+  //     showLabels: true,
+  //     showTitle: true,
+  //     title: 'Report Transactions',
+  //     useBom: true,
+  //     noDownload: false,
+  //     headers: ["TransId", "Source", "Distination", "Description", "Amount", "budget"]
+  //   };
+  //   new ngxCsv(this.transactions, 'Report', options);
+  // }
+
+  sortData(sort: Sort) {
+    const data = this.transactions.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
+
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'source':
+          return compare(a.source, b.source, isAsc);
+        case 'distination':
+          return compare(a.distination, b.distination, isAsc);
+        case 'description':
+          return compare(a.description, b.description, isAsc);
+        case 'amount':
+          return compare(a.amount, b.amount, isAsc);
+        case 'budget':
+          return compare(a.budget, b.budget, isAsc);
+        default:
+          return 0;
+      }
+    });
+    function compare(a: number | string, b: number | string, isAsc: boolean) {
+      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+    }
   }
-  // #####################################
-
-
-
-
-
-
 }
+
+
+
+
+
+
+

@@ -16,9 +16,10 @@ interface Bank_accounts {
 })
 export class BankAccountComponent implements OnInit {
 
-  // accounts: Bank_accounts[] = Bank_account
+  // accounts : Bank_accounts[] = Bank_account
 
   constructor(public Http:HttpService) {}
+
   ngOnInit(): void {
   }
 

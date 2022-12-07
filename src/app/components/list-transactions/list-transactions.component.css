@@ -37,3 +37,40 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+
+.addTransaction {
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+  width: 900px;
+  height: 80px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.account , .distination, .amount, .description ,.budget{
+  font-size: 24px;
+  background-color: transparent;
+  color: black;
+}
+.add-transaction {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px ridge rgba(86, 151, 194, 0.6);
+}
+.items {
+  width: 900px;
+  height: 100px;
+}
+.container {
+  display: flex;
+  max-width: 900px;
+  margin-left: 200px;
+}
+
+
+.mat-sort {
+  margin-top: 0px;
+  margin-left: 0px;
+  font-size: 24px;
+}
+

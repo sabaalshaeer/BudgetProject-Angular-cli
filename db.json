@@ -1,6 +1,7 @@
 {
   "bank_accounts": [
     {
+      
       "accId": 1,
       "name": "account1",
       "type": "saving",
@@ -42,6 +43,7 @@
   ],
   "budgets": [
     {
+
       "budId": 1,
       "name": "house",
       "total": 1000
@@ -59,6 +61,7 @@
   ],
   "transactions": [
     {
+      "id": 0,
       "transId": 1,
       "source": "checking",
       "distination": "house",
@@ -67,6 +70,7 @@
       "budget": 100
     },
     {
+      "id": 1,
       "transId": 2,
       "source": "checking",
       "distination": "car",
@@ -75,6 +79,7 @@
       "budget": 100
     },
     {
+      "id": 2,
       "transId": 3,
       "source": "checking",
       "distination": "personal",
@@ -83,6 +88,7 @@
       "budget": 250
     },
     {
+      "id": 3,
       "transId": 4,
       "source": "checking",
       "distination": "bills",
@@ -91,17 +97,89 @@
       "budget": 200
     },
     {
+      "id": 4,
       "transId": 5,
       "source": "checking",
       "distination": "personal",
       "description": "clothing",
       "amount": 150,
       "budget": 300
+    },
+    {
+      "source": "checking",
+      "description": "car",
+      "distination": "mortgage",
+      "amount": "100",
+      "id": 5
+    },
+    {
+      "source": "saving",
+      "description": "house",
+      "distination": "utilities",
+      "amount": "100",
+      "id": 6
+    },
+    {
+      "source": "saving",
+      "description": "car",
+      "distination": "repair",
+      "amount": "100",
+      "budget": "20",
+      "id": 7
+    },
+    {
+      "source": "checking",
+      "description": "house",
+      "distination": "mortgage",
+      "amount": "100",
+      "budget": "20",
+      "id": 8
+    },
+    {
+      "source": "",
+      "description": "",
+      "distination": "",
+      "id": 9
+    },
+    {
+      "source": "",
+      "description": "",
+      "distination": "",
+      "id": 10
+    },
+    {
+      "source": "",
+      "description": "",
+      "distination": "",
+      "id": 11
+    },
+    {
+      "source": "",
+      "description": "",
+      "distination": "",
+      "id": 12
+    },
+    {
+      "source": "saving",
+      "description": "car",
+      "distination": "gaz",
+      "amount": "50",
+      "budget": "50",
+      "id": 13
+    },
+    {
+      "source": "saving",
+      "description": "house",
+      "distination": "bills",
+      "id": 14
+    },
+    {
+      "source": "checking",
+      "description": "personal",
+      "distination": "grocery",
+      "amount": "20",
+      "budget": "21",
+      "id": 15
     }
   ]
 }
-
-
-
-
-

@@ -1,39 +1,60 @@
-<form >
-  <!-- #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)" -->
-<section class="addTransaction">
-  <mat-form-field>
-    <mat-label class="account" required [(ngModel)]="source" name="source">Account</mat-label>
-    <mat-select>
-      <mat-option value="checking" >Checking</mat-option>
-      <mat-option value="saving" >Saving</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label class="distination" required [(ngModel)]="distination" name="distination">Distination</mat-label>
-    <mat-select>
-      <mat-option value="house">House Expenses</mat-option>
-      <mat-option value="car">Car Expenses</mat-option>
-      <mat-option value="personal">Personal Expenses</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label class="description" required [(ngModel)]="description" name="description">description</mat-label>
-    <input matInput placeholder="description">
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label class="amount" required [(ngModel)]="amount" name="amount">Amount</mat-label>
-    <input matInput placeholder="amount">
-  </mat-form-field>
-  <section class="add-transaction">
-    <div >
-      <button class="button" type="submit">Add Transaction</button>
-    </div>
+
+<div class="parent">
+  <button type="button" (click)="Http.startNewTransaction()">Start New Transaction</button>
+
+  <h2 *ngIf="Http.getloading()">Loading your Transactions</h2>
+  <app-list-transactions  *ngIf="Http.isShowNewTransaction()"></app-list-transactions>
+
+</div>
+<div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form>
+  <section class="addTransaction">
+    <mat-form-field>
+      <mat-label class="account" required [(ngModel)]="source" name="source">Account</mat-label>
+      <mat-select>
+        <mat-option value="checking">Checking</mat-option>
+        <mat-option value="saving">Saving</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="distination" required [(ngModel)]="distination" name="distination">Distination</mat-label>
+      <mat-select>
+        <mat-option value="house">House Expenses</mat-option>
+        <mat-option value="car">Car Expenses</mat-option>
+        <mat-option value="personal">Personal Expenses</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="description" required [(ngModel)]="description" name="description">description</mat-label>
+      <input matInput placeholder="description">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="amount" required [(ngModel)]="amount" name="amount">Amount</mat-label>
+      <input matInput placeholder="amount">
+    </mat-form-field>
+    <section class="add-transaction">
+      <div>
+        <button class="button" type="submit">Add Transaction</button>
+      </div>
+    </section>
+
   </section>
+</form> -->
 
-</section>
-</form>
-
-<app-list-transactions ></app-list-transactions>
 
 
 
@@ -69,4 +90,3 @@
       </table>
   </div>
   </div> -->
-
