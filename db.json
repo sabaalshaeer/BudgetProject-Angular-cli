@@ -1,41 +1,52 @@
 {
-  "bank_accounts": [
+  "Accounts": [
     {
-      
-      "accId": 1,
-      "name": "account1",
-      "type": "saving",
-      "balance": 10000
-    },
-    {
+      "id": 1,
       "accId": 2,
-      "name": "account2",
+      "name": "UsBank",
       "type": "checking",
       "balance": 5000
+    },
+    {
+      "name": "Back of Amarica",
+      "type": "Checking",
+      "balance": "2000",
+      "id": 3
+    },
+    {
+      "name": "UsBank",
+      "type": "Saving",
+      "balance": "2000",
+      "id": 4
     }
   ],
   "destinations": [
     {
+      "id": 0,
       "disId": 1,
       "name": "mortgage",
       "budget": 0
     },
     {
+      "id": 1,
       "disId": 2,
       "name": "utilities",
       "budget": 0
     },
     {
+      "id": 2,
       "disId": 3,
       "name": "clothing",
       "budget": 0
     },
     {
+      "id": 3,
       "disId": 4,
       "name": "grocery",
       "budget": 0
     },
     {
+      "id": 4,
       "disId": 5,
       "name": "gas",
       "budget": 0
@@ -43,17 +54,19 @@
   ],
   "budgets": [
     {
-
+      "id": 0,
       "budId": 1,
       "name": "house",
       "total": 1000
     },
     {
+      "id": 1,
       "budId": 2,
       "name": "personal",
       "total": 1000
     },
     {
+      "id": 2,
       "budId": 3,
       "name": "car",
       "total": 1000

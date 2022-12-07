@@ -10,6 +10,7 @@
 .mat-tab-group {
   text-align: center;
   display: flex;
+  flex-wrap: wrap;
   height: 100px;
   background: linear-gradient(75deg, rgb(112, 62, 231), rgb(5, 5, 138));
   margin: 20px;

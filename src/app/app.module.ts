@@ -20,6 +20,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ListTransactionsComponent } from './components/list-transactions/list-transactions.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule, Sort} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 
@@ -50,6 +52,7 @@ import {MatSortModule, Sort} from '@angular/material/sort';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
+    MatCardModule
     ],
   providers: [],
   bootstrap: [AppComponent]

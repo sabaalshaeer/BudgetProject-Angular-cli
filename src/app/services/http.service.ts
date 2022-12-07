@@ -1,6 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Transaction, Bank_account, Budget, Distination } from '../bank';
+import { Transaction, Account, Budget, Distination } from '../bank';
 import { transition } from '@angular/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { pipe, take } from 'rxjs';
@@ -22,9 +22,11 @@ export class HttpService {
   private distinations: Distination[] = []
   private transId: number | undefined
   private transactions : Transaction[] = []
-  private accounts: Bank_account[] = []
+  private accounts: Account[] = []
   private budgets: Budget[] = []
   private showNewTransaction = false
+  private showNewAccount = false
+
 
 
   constructor(public Http: HttpClient, private snackBar: MatSnackBar) {
@@ -56,9 +58,7 @@ export class HttpService {
   public getloading(): boolean {
     return this.loading
   }
-  public getTransId(): number | undefined {
-    return  this.transId
-  }
+
   public startAccount() : void {
     this.showAccount = true
     this.showBudget = false
@@ -68,7 +68,7 @@ export class HttpService {
   }
   private loadAccount(): void {
     this.loading = true
-    this.Http.get<Bank_account[]>('http://localhost:3000/bank_accounts')
+    this.Http.get<Account[]>('http://localhost:3000/Accounts')
     .pipe(take(1))
     .subscribe({
       next: accounts => {
@@ -78,8 +78,12 @@ export class HttpService {
       }
     })
     }
-    public getAccounts(): void {
-      this.Http.get<Bank_account[]>('http://localhost:3000/bank_accounts')
+
+    public getAccounts(): Account[] {
+      return this.accounts
+    }
+    public getAllAccounts(): void {
+      this.Http.get<Account[]>('http://localhost:3000/Accounts')
       .pipe(take(1))
       .subscribe({
         next: accountArray => {
@@ -93,13 +97,51 @@ export class HttpService {
         error: err => this.showError('Ooops, somthing went wrong!')
       })
     }
+    public isShowNewAccount(): boolean {
+      return this.showNewAccount
+    }
+    public startNewAccount(): void {
+      this.showNewAccount = true
+    }
 
-  public startBudge() : void {
-    this.showAccount = false
-    this.showBudget = true
-    this.showTransaction = false
-    this.showDashbord = false
-  }
+    public newAccount(name: string, type: string, balance: number): void {
+      console.log("inside post")
+      this.showNewAccount = false
+      if( name === "" || type === "" || balance < 0) {
+        this.showError("This New Account is invalid")
+        return
+      }
+      this.Http.post('http://localhost:3000/Accounts',{
+        name: name,
+        type : type,
+        balance : balance
+      }).pipe(take(1))
+      .subscribe({
+        next: () => {
+          this.loadAccount()
+        },
+        error: () => {
+          this.showError('Ooops, something wenr wrong.....!')
+        }
+      })
+    }
+
+    public deleteAccount(id:number): void {
+      this.Http.delete(`http://localhost:3000/Accounts/${id}`)
+      .pipe(take(1))
+      .subscribe({
+        next: () => {
+          this.loadAccount()
+
+        },
+        error: () => {
+          this.showError('Ooops, something wenr wrong.....!')
+
+        }
+      })
+    }
+
+
   public startTransaction() : void {
     this.showAccount = false
     this.showBudget = false
@@ -169,11 +211,12 @@ export class HttpService {
       }
     })
   }
+
   public cancelNewTransaction(): void {
     this.showNewTransaction = false
   }
 
-  
+
 
 
   public startDashbord() : void {
@@ -188,22 +231,50 @@ export class HttpService {
       duration: 2000
     })
   }
+  public startBudge() : void {
+    this.showAccount = false
+    this.showBudget = true
+    this.showTransaction = false
+    this.showDashbord = false
+    this.loadBudget()
 
-  public getBudgets(): void {
+  }
+
+
+  private loadBudget(): void {
+    this.loading = true
     this.Http.get<Budget[]>('http://localhost:3000/budgets')
     .pipe(take(1))
     .subscribe({
-      next: budgetArray => {
-        if (budgetArray.length !== 1) {
-          this.showError('there is no Budget')
-        } else {
-          console.log(this.budgets)
-          this.showBudget
-        }
-      },
-      error: err => this.showError('Ooops, somthing went wrong!')
+      next: budgets => {
+        console.log(budgets)
+        this.budgets = [...budgets]
+        this.loading = false
+      }
     })
-  }
+    }
+
+    public getAllBudgets(): void {
+      this.Http.get<Budget[]>('http://localhost:3000/budgets')
+      .pipe(take(1))
+      .subscribe({
+        next: budgetArray => {
+          if (budgetArray.length !== 1) {
+            this.showError('there is no Budget')
+          } else {
+            console.log(this.budgets)
+            this.showBudget
+          }
+        },
+        error: err => this.showError('Ooops, somthing went wrong!')
+      })
+    }
+
+    public getBudgets(): Budget[] {
+      return this.budgets
+    }
+    
+
 
 
 }

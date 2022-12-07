@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { Bank_account } from 'src/app/bank';
+import { Account } from 'src/app/bank';
 
-interface Bank_accounts {
-  accId: number
-  name: string
-  type: string
-  balance: number
-}
+
 
 @Component({
   selector: 'app-bank-account',
@@ -15,6 +10,11 @@ interface Bank_accounts {
   styleUrls: ['./bank-account.component.css']
 })
 export class BankAccountComponent implements OnInit {
+
+
+  public name = ""
+  public type = ""
+  public balance: number | undefined 
 
   // accounts : Bank_accounts[] = Bank_account
 

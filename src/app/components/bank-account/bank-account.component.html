@@ -1,8 +1,39 @@
-<!-- <div class="container">
+<div class="container">
 
-  <h1> Display the Bank Accounts </h1>
+  <h1 *ngIf="Http.getloading()"> Display the Bank Accounts </h1>
 
-  <table class="table table-striped">
+  <mat-card *ngFor="let account of Http.getAccounts()">
+    <mat-card-header >
+      <mat-card-title>{{ account.name }}</mat-card-title>
+      <mat-card-subtitle>{{ account.type }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ account.balance }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button (click)="account && Http.deleteAccount(account.id!)"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="button">
+    <button  type="submit" (click)="Http.newAccount(name, type, balance!)">Add New Account</button>
+
+  </div>
+
+  <section class="addAccount">
+    <mat-form-field>
+      <mat-label class="name">name</mat-label>
+      <input matInput required [(ngModel)]="name" placeholder="name of new bank">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="type" >type</mat-label>
+      <input matInput required [(ngModel)]="type"  placeholder="type">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label class="budget" >balance</mat-label>
+      <input matInput required [(ngModel)]="balance"  placeholder="balance">
+    </mat-form-field>
+    <section class="add-transaction">
+
+  <!-- <table class="table table-striped">
     <thead>
         <tr>
           <th>Name</th>
@@ -11,11 +42,11 @@
         </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let account of Http.getAccounts()">
+      <tr *ngFor="let account of Http.getAccounts()" >
         <td>{{ account.name }}</td>
         <td>{{ account.type }}</td>
         <td>{{ account.balance }}</td>
       </tr>
     </tbody>
   </table>
-</div> -->
+</div>  -->

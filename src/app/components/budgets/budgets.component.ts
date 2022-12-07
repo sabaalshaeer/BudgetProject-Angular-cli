@@ -10,7 +10,9 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./budgets.component.css']
 })
 export class BudgetsComponent implements OnInit {
-
+  public name = ""
+  public type = ""
+  public balance: number | undefined 
   constructor(public Http:HttpService) { }
 
   ngOnInit(): void {
