@@ -1,12 +1,12 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { ngxCsv } from 'ngx-csv/ngx-csv';
 
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Transaction } from 'src/app/bank';
+import {ThemePalette} from '@angular/material/core';
 
 
 @Component({
@@ -14,6 +14,7 @@ import { Transaction } from 'src/app/bank';
   templateUrl: './list-transactions.component.html',
   styleUrls: ['./list-transactions.component.css']
 })
+
 export class ListTransactionsComponent implements OnInit {
   @Input() transaction: Transaction | undefined
 
@@ -28,37 +29,13 @@ export class ListTransactionsComponent implements OnInit {
   transactions: Transaction[] = []
   sortedData: Transaction[] | undefined;
 
-  // public source1: string =
-  // public distination1: string = newDistination
-  // public description1: string = new Description()
-  // public amount1: string = new Amount()
-
-
 
   constructor(public Http: HttpService , private _liveAnnouncer: LiveAnnouncer) {
     this.sortedData = this.transactions.slice();
     }
 
-
-
   ngOnInit(): void {
   }
-
-
-  // fileDownLoad(){
-  //   var options = {
-  //     fieldSeparator: ',',
-  //     quoteStrings: '"',
-  //     decimalseparator: '.',
-  //     showLabels: true,
-  //     showTitle: true,
-  //     title: 'Report Transactions',
-  //     useBom: true,
-  //     noDownload: false,
-  //     headers: ["TransId", "Source", "Distination", "Description", "Amount", "budget"]
-  //   };
-  //   new ngxCsv(this.transactions, 'Report', options);
-  // }
 
   sortData(sort: Sort) {
     const data = this.transactions.slice();

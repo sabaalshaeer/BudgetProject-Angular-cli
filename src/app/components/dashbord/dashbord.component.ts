@@ -8,8 +8,8 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./dashbord.component.css']
 })
 export class DashbordComponent implements OnInit {
-  
 
+  
   constructor(public Http: HttpService) { }
 
   ngOnInit(): void {

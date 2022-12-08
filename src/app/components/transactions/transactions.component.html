@@ -1,9 +1,8 @@
 
 <div class="parent">
-  <button type="button" (click)="Http.startNewTransaction()">Start New Transaction</button>
-
-  <h2 *ngIf="Http.getloading()">Loading your Transactions</h2>
-  <app-list-transactions  *ngIf="Http.isShowNewTransaction()"></app-list-transactions>
+  <!-- <button type="button" (click)="Http.startNewTransaction()">Start New Transaction</button> -->
+    <h2 *ngIf="Http.getloading()">Loading your Transactions</h2>
+  <app-list-transactions ></app-list-transactions>
 
 </div>
 <div>

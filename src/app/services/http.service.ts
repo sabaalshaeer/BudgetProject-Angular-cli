@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,19 +30,7 @@ export class HttpService {
 
 
 
-  constructor(public Http: HttpClient, private snackBar: MatSnackBar) {
-    // this.getAllTransaction()
-
-    // const source = localStorage.getItem('source')
-    // const distination = localStorage.getItem('distination')
-    // const description =localStorage.getItem('description')
-    // const amount = localStorage.getItem('1')
-    // const budget = localStorage.getItem('1')
-
-    // if (source !== null && distination !== null && description !== null && amount !== null ) {
-    //   this.addTransaction( source ,distination , description, amount)
-    // }
-  }
+  constructor(public Http: HttpClient, private snackBar: MatSnackBar) {}
 
   public getShowAccount(): boolean {
     return this.showAccount
@@ -190,11 +179,11 @@ export class HttpService {
   }
   public newTransaction(source: string, distination: string, description: string, amount: number, budget: number): void {
     console.log("inside post")
-    this.showNewTransaction = false
-    if( source === "" || distination === "" || description === "" || amount < 0 || budget < amount) {
+    if( source === "" || distination === "" || description === "" || amount < budget) {
       this.showError("This New Transaction is invalid")
       return
     }
+    this.showNewTransaction = false
     this.Http.post('http://localhost:3000/transactions',{
       source: source,
       description : description,
@@ -211,13 +200,23 @@ export class HttpService {
       }
     })
   }
+  public deleteTransaction(id:number): void {
+    this.Http.delete(`http://localhost:3000/Transactions/${id}`)
+    .pipe(take(1))
+    .subscribe({
+      next: () => {
+        this.loadTransations()
 
-  public cancelNewTransaction(): void {
-    this.showNewTransaction = false
+      },
+      error: () => {
+        this.showError('Ooops, something wenr wrong.....!')
+
+      }
+    })
   }
-
-
-
+  // public cancelNewTransaction(): void {
+  //   this.showNewTransaction = false
+  // }
 
   public startDashbord() : void {
     this.showAccount = false
@@ -273,9 +272,8 @@ export class HttpService {
     public getBudgets(): Budget[] {
       return this.budgets
     }
-    
 
-
+  
 
 }
 

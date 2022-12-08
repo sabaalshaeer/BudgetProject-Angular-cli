@@ -21,6 +21,8 @@ import { ListTransactionsComponent } from './components/list-transactions/list-t
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule, Sort} from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 
@@ -52,7 +54,8 @@ import {MatCardModule} from '@angular/material/card';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,3 @@
-<!-- <form #newTransactions> --> 
-  <!-- #itemForm="ngForm" (ngSubmit)="addNewTransaction(itemForm)" -->
 <section class="addTransaction">
   <mat-form-field>
     <mat-label class="account" >Account</mat-label>
@@ -21,22 +19,19 @@
     <input matInput required [(ngModel)]="description" placeholder="description">
   </mat-form-field>
   <mat-form-field>
-    <mat-label class="amount"  >Amount</mat-label>
+    <mat-label class="amount"   >Amount</mat-label>
     <input matInput required [(ngModel)]="amount"  placeholder="amount">
   </mat-form-field>
   <mat-form-field>
-    <mat-label class="budget"  >Budget</mat-label>
-    <input matInput required [(ngModel)]="budget"  placeholder="budget">
+    <mat-label class="budget" >Budget</mat-label>
+    <input matInput  [(ngModel)]="budget" required="budget" placeholder="budget">
   </mat-form-field>
   <section class="add-transaction">
     <div >
-      <button class="button" type="submit" (click)="Http.getAllTransactions()">Get All Transactions</button>
       <button class="button" type="submit" (click)="Http.newTransaction(source, description, distination, amount!,budget!)">Add New Transactions</button>
-      <button class="button" type="submit" (click)="Http.cancelNewTransaction()">Cancel New Transactions</button>
     </div>
   </section>
 </section>
-<!-- </form> -->
 
 <div class="trans">
   <h3 class="p-6 text-center">list of Transactions</h3>
@@ -61,60 +56,9 @@
               </tr>
           </tbody>
       </table>
+      <!-- <div class="x-icon-button" (click)="transaction && Http.deleteTransaction(transaction.id!)"> -->
+
+      <!-- </div> -->
   </div>
   </div>
-
-  <!-- <button type="button" (click)="fileDownLoad()">Download</button> -->
-
-
-<!-- <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
-      class="mat-elevation-z8">
-
-  <ng-container matColumnDef="transId">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by transId">
-      Id
-    </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.transId}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="source">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by source">
-      Source
-    </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.source}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="distination">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by distination">
-      Distination
-    </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.distination}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by description">
-      Distination
-    </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.description}} </td>
-  </ng-container>
-
-<ng-container matColumnDef="amount">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by amount">
-    Amount
-  </th>
-  <td mat-cell *matCellDef="let transaction"> {{transaction.amount}} </td>
-</ng-container>
-
-<ng-container matColumnDef="budget">
-  <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by budget">
-    budget
-  </th>
-  <td mat-cell *matCellDef="let transaction"> {{transaction.budget}} </td>
-</ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table> -->
-
-
 

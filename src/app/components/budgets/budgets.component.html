@@ -1,13 +1,14 @@
 <div class="header">
-  <h1>Your Budget Uptodate</h1>
+  <h1>Your Budget</h1>
 </div>
 
-<div class="budget" *ngFor="let budget of Http.getBudgets()">
-  <mat-tab-group>
+<div class="budget" >
+  <mat-tab-group *ngFor="let budget of Http.getBudgets()">
     <mat-tab label="{{budget.name }}">
       <ng-template matTabContent>
         {{budget.total}}
       </ng-template>
     </mat-tab>
   </mat-tab-group>
+
 </div>
