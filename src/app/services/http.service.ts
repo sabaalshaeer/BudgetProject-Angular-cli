@@ -142,7 +142,7 @@ export class HttpService {
   }
   private loadTransations(): void {
     this.loading = true
-  this.Http.get<Transaction[]>('http://localhost:3000/transactions')
+  this.Http.get<Transaction[]>('http://localhost:8080/transactions')
   .pipe(take(1))
   .subscribe({
     next: transactions => {
@@ -179,12 +179,12 @@ export class HttpService {
   }
   public newTransaction(source: string, distination: string, description: string, amount: number, budget: number): void {
     console.log("inside post")
-    if( source === "" || distination === "" || description === "" || amount < budget) {
+    if( source === "" || distination === "" || description === "" || amount > budget) {
       this.showError("This New Transaction is invalid")
       return
     }
     this.showNewTransaction = false
-    this.Http.post('http://localhost:3000/transactions',{
+    this.Http.post('http://localhost:8080/transactions',{
       source: source,
       description : description,
       distination : distination,
@@ -242,7 +242,7 @@ export class HttpService {
 
   private loadBudget(): void {
     this.loading = true
-    this.Http.get<Budget[]>('http://localhost:3000/budgets')
+    this.Http.get<Budget[]>('http://localhost:8080/budgets')
     .pipe(take(1))
     .subscribe({
       next: budgets => {
@@ -273,7 +273,7 @@ export class HttpService {
       return this.budgets
     }
 
-  
+
 
 }
 
