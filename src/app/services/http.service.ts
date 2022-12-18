@@ -57,7 +57,7 @@ export class HttpService {
   }
   private loadAccount(): void {
     this.loading = true
-    this.Http.get<Account[]>('http://localhost:3000/Accounts')
+    this.Http.get<Account[]>('http://localhost:8080/accounts')
     .pipe(take(1))
     .subscribe({
       next: accounts => {
@@ -72,7 +72,7 @@ export class HttpService {
       return this.accounts
     }
     public getAllAccounts(): void {
-      this.Http.get<Account[]>('http://localhost:3000/Accounts')
+      this.Http.get<Account[]>('http://localhost:3000/accounts')
       .pipe(take(1))
       .subscribe({
         next: accountArray => {
@@ -95,12 +95,12 @@ export class HttpService {
 
     public newAccount(name: string, type: string, balance: number): void {
       console.log("inside post")
-      this.showNewAccount = false
       if( name === "" || type === "" || balance < 0) {
         this.showError("This New Account is invalid")
         return
       }
-      this.Http.post('http://localhost:3000/Accounts',{
+      this.showNewAccount = false
+      this.Http.post('http://localhost:8080/accounts',{
         name: name,
         type : type,
         balance : balance
@@ -110,13 +110,13 @@ export class HttpService {
           this.loadAccount()
         },
         error: () => {
-          this.showError('Ooops, something wenr wrong.....!')
+          this.showError('Ooops, something wenttt wrong.....!')
         }
       })
     }
 
     public deleteAccount(id:number): void {
-      this.Http.delete(`http://localhost:3000/Accounts/${id}`)
+      this.Http.delete(`http://localhost:3000/accounts/${id}`)
       .pipe(take(1))
       .subscribe({
         next: () => {
@@ -124,7 +124,7 @@ export class HttpService {
 
         },
         error: () => {
-          this.showError('Ooops, something wenr wrong.....!')
+          this.showError('Ooops, something wenrtttttt wrong.....!')
 
         }
       })
@@ -177,9 +177,10 @@ export class HttpService {
   public startNewTransaction(): void {
     this.showNewTransaction = true
   }
+
   public newTransaction(source: string, distination: string, description: string, amount: number, budget: number): void {
     console.log("inside post")
-    if( source === "" || distination === "" || description === "" || amount > budget) {
+    if( source === "" || distination === "" || description === "" || amount < budget) {
       this.showError("This New Transaction is invalid")
       return
     }

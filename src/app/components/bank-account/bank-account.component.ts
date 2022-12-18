@@ -11,10 +11,9 @@ import { Account } from 'src/app/bank';
 })
 export class BankAccountComponent implements OnInit {
 
-
   public name = ""
   public type = ""
-  public balance: number | undefined 
+  public balance: number | undefined
 
   // accounts : Bank_accounts[] = Bank_account
 
