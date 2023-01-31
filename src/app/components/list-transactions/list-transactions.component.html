@@ -1,13 +1,13 @@
 <section class="addTransaction">
   <mat-form-field>
-    <mat-label class="account" >Account</mat-label>
+    <mat-label class="account">Account</mat-label>
     <mat-select required [(ngModel)]="source">
-      <mat-option value="checking" >Checking</mat-option>
-      <mat-option value="saving" >Saving</mat-option>
+      <mat-option value="checking">Checking</mat-option>
+      <mat-option value="saving">Saving</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-label class="distination"  >Distination</mat-label>
+    <mat-label class="distination">Distination</mat-label>
     <mat-select required [(ngModel)]="distination">
       <mat-option value="house">House Expenses</mat-option>
       <mat-option value="car">Car Expenses</mat-option>
@@ -15,20 +15,21 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-label class="description"  >description</mat-label>
+    <mat-label class="description">description</mat-label>
     <input matInput required [(ngModel)]="description" placeholder="description">
   </mat-form-field>
   <mat-form-field>
-    <mat-label class="amount"   >Amount</mat-label>
-    <input matInput required [(ngModel)]="amount"  placeholder="amount">
+    <mat-label class="amount">Amount</mat-label>
+    <input matInput required [(ngModel)]="amount" placeholder="amount">
   </mat-form-field>
   <mat-form-field>
-    <mat-label class="budget" >Budget</mat-label>
-    <input matInput  [(ngModel)]="budget" required="budget" placeholder="budget">
+    <mat-label class="budget">Budget</mat-label>
+    <input matInput [(ngModel)]="budget" required="budget" placeholder="budget">
   </mat-form-field>
   <section class="add-transaction">
-    <div >
-      <button class="button" type="submit" (click)="Http.newTransaction(source, description, distination, amount!,budget!)">Add New Transactions</button>
+    <div>
+      <button class="button" type="submit"
+        (click)="Http.newTransaction(source, description, distination, amount!,budget!)">Add New Transactions</button>
     </div>
   </section>
 </section>
@@ -36,30 +37,29 @@
 <div class="trans">
   <h3 class="p-6 text-center">list of Transactions</h3>
   <div class="container">
-      <table matSort (matSortChange)="sortData($event)">
-              <tr>
-                <th mat-sort-header="transId"  name="transId">Id</th>
-                <th mat-sort-header="source"  name="source">source</th>
-                <th mat-sort-header="distination"  name="distination">distination</th>
-                <th mat-sort-header="description"  name="description">description</th>
-                <th mat-sort-header="amount"  name="amount">amount</th>
-                <th mat-sort-header="budget" name="budget">budget</th>
-              </tr>
-          <tbody>
-              <tr *ngFor="let transaction of Http.getTransactions()">
-                  <td>{{transaction.transId}}</td>
-                  <td>{{transaction.source}}</td>
-                  <td>{{transaction.distination}}</td>
-                  <td>{{transaction.description}}</td>
-                  <td>{{transaction.amount}}</td>
-                  <td>{{transaction.budget}}</td>
-              </tr>
-              <tr>Total Transaction:{{getTotalTransaction()}}</tr>
-          </tbody>
-      </table>
-      <!-- <div class="x-icon-button" (click)="transaction && Http.deleteTransaction(transaction.id!)"> -->
+    <table matSort (matSortChange)="sortData($event)">
+      <tr>
+        <th mat-sort-header="transId" name="transId">Id</th>
+        <th mat-sort-header="source" name="source">source</th>
+        <th mat-sort-header="distination" name="distination">distination</th>
+        <th mat-sort-header="description" name="description">description</th>
+        <th mat-sort-header="amount" name="amount">amount</th>
+        <th mat-sort-header="budget" name="budget">budget</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let transaction of Http.getTransactions()">
+          <td>{{transaction.transId}}</td>
+          <td>{{transaction.source}}</td>
+          <td>{{transaction.distination}}</td>
+          <td>{{transaction.description}}</td>
+          <td>{{transaction.amount}}</td>
+          <td>{{transaction.budget}}</td>
+        </tr>
+        <tr>Total Transaction:{{getTotalTransaction(Http.getTransactions())}}</tr>
+      </tbody>
+    </table>
+    <!-- <div class="x-icon-button" (click)="transaction && Http.deleteTransaction(transaction.id!)"> -->
 
-      <!-- </div> -->
+    <!-- </div> -->
   </div>
-  </div>
-
+</div>

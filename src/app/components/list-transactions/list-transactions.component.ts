@@ -66,14 +66,37 @@ export class ListTransactionsComponent implements OnInit {
     }
   }
 
-  public getTotalTransaction(): number {
-      let totalTransaction = 0;
-     this.transactions.map((i: Transaction) => {
-      totalTransaction += i.amount;
-    });
-    return totalTransaction
+  // public getTotalTransaction(transactions: Transaction[]): number {
+  //     let totalTransaction = 0;
+  //    transactions.map((i: Transaction) => {
+  //     totalTransaction += i.amount;
+  //   });
+  //   return totalTransaction
 
+  // }
+
+  public getTotalTransaction(transactions: Transaction[]): number {
+    let totalTransaction = 0;
+    transactions.map((i: Transaction) => {
+      if (i.amount) {
+        totalTransaction += i.amount;
+      }
+    });
+    return totalTransaction;
   }
+
+  public getTotalTransactionByDistination(transactions: Transaction[], distination: string): number {
+    let totalTransaction = 0;
+    transactions.map((i: Transaction) => {
+      if (i.distination === distination) {
+        totalTransaction += i.amount;
+      }
+    });
+    return totalTransaction;
+  }
+
+ 
+
 
 }
 
