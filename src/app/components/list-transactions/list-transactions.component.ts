@@ -65,6 +65,16 @@ export class ListTransactionsComponent implements OnInit {
       return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
     }
   }
+
+  public getTotalTransaction(): number {
+      let totalTransaction = 0;
+     this.transactions.map((i: Transaction) => {
+      totalTransaction += i.amount;
+    });
+    return totalTransaction
+
+  }
+
 }
 
 
