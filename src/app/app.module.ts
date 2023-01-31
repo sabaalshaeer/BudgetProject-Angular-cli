@@ -10,7 +10,6 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { BudgetsComponent } from './components/budgets/budgets.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { BankAccountComponent } from './components/bank-account/bank-account.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
@@ -29,13 +28,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     BudgetsComponent,
     TransactionsComponent,
-    DashbordComponent,
     BankAccountComponent,
     ListTransactionsComponent,
   ],

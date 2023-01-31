@@ -57,7 +57,7 @@ export class HttpService {
   }
   private loadAccount(): void {
     this.loading = true
-    this.Http.get<Account[]>('http://localhost:8080/accounts')
+    this.Http.get<Account[]>('http://localhost:3000/accounts')
     .pipe(take(1))
     .subscribe({
       next: accounts => {
@@ -100,7 +100,7 @@ export class HttpService {
         return
       }
       this.showNewAccount = false
-      this.Http.post('http://localhost:8080/accounts',{
+      this.Http.post('http://localhost:3000/accounts',{
         name: name,
         type : type,
         balance : balance
@@ -142,7 +142,7 @@ export class HttpService {
   }
   private loadTransations(): void {
     this.loading = true
-  this.Http.get<Transaction[]>('http://localhost:8080/transactions')
+  this.Http.get<Transaction[]>('http://localhost:3000/transactions')
   .pipe(take(1))
   .subscribe({
     next: transactions => {
@@ -185,7 +185,7 @@ export class HttpService {
       return
     }
     this.showNewTransaction = false
-    this.Http.post('http://localhost:8080/transactions',{
+    this.Http.post('http://localhost:3000/transactions',{
       source: source,
       description : description,
       distination : distination,
@@ -243,7 +243,7 @@ export class HttpService {
 
   private loadBudget(): void {
     this.loading = true
-    this.Http.get<Budget[]>('http://localhost:8080/budgets')
+    this.Http.get<Budget[]>('http://localhost:3000/budgets')
     .pipe(take(1))
     .subscribe({
       next: budgets => {
